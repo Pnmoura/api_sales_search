@@ -20,7 +20,7 @@ class VendaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Venda::create($request->all());
     }
 
     /**
@@ -28,7 +28,7 @@ class VendaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Venda::findOrFail($id);
     }
 
     /**
@@ -36,7 +36,11 @@ class VendaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $produto = Venda::findOrFail($id);
+
+        $produto->update($request->all());
+
+        return $produto;
     }
 
     /**
@@ -44,6 +48,6 @@ class VendaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return Venda::destroy($id);
     }
 }

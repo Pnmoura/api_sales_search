@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\VendaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,22 @@ Route::prefix('/api')->group(function () {
 //Exclui usuário pelo ID
     Route::delete('/clientes/{id}', [ClienteController::class, 'destroy']);
 
+});
+
+Route::prefix('/api')->group(function () {
+
+    //Traz todos os produtos cadastrados no banco
+    Route::get('/produtos', [VendaController::class, 'index']);
+
+    //Salva/cadastra novos produtos
+    Route::post('/produtos', [VendaController::class, 'store']);
+
+    //Consulta por ID
+    Route::get('/produtos/{id}', [VendaController::class, 'show']);
+
+    //Atualiza informações do produto por ID
+    Route::put('/produtos/{id}', [VendaController::class, 'update']);
+
+    //Deleta produto por ID
+    Route::delete('/produtos/{id}', [VendaController::class, 'destroy']);
 });

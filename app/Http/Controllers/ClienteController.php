@@ -54,6 +54,5 @@ class ClienteController extends Controller
             echo "Cliente $id foi removido do banco";
         }
         echo "Nenhum ID foi passado para remoção.";
-       // return Cliente::destroy($id);
     }
 }

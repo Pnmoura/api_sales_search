@@ -20,7 +20,9 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        return Cliente::create($request->all());
+        if (Cliente::create($request->all())) {
+            echo 'Cliente criado com sucesso';
+        }
     }
 
     /**
@@ -48,6 +50,10 @@ class ClienteController extends Controller
      */
     public function destroy(string $id)
     {
-        return Cliente::destroy($id);
+        if (Cliente::destroy($id)) {
+            echo "Cliente $id foi removido do banco";
+        }
+        echo "Nenhum ID foi passado para remoção.";
+       // return Cliente::destroy($id);
     }
 }

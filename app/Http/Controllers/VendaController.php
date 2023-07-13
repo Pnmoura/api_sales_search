@@ -20,7 +20,9 @@ class VendaController extends Controller
      */
     public function store(Request $request)
     {
-        return Venda::create($request->all());
+        if (Venda::create($request->all())) {
+            die('Venda criada com sucesso');
+        }
     }
 
     /**
@@ -48,6 +50,9 @@ class VendaController extends Controller
      */
     public function destroy(string $id)
     {
-        return Venda::destroy($id);
+        if (Venda::destroy($id)){
+            die("Venda $id foi removida do banco");
+        }
+        die("Nenhuma ID de venda foi passado para remoção");
     }
 }

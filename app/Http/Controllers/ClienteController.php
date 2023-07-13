@@ -21,7 +21,7 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         if (Cliente::create($request->all())) {
-            echo 'Cliente criado com sucesso';
+            die('Cliente criado com sucesso');
         }
     }
 
@@ -51,8 +51,8 @@ class ClienteController extends Controller
     public function destroy(string $id)
     {
         if (Cliente::destroy($id)) {
-            echo "Cliente $id foi removido do banco";
+            die("Cliente $id foi removido do banco");
         }
-        echo "Nenhum ID foi passado para remoção.";
+        die("Nenhum ID foi passado para remoção.");
     }
 }
